@@ -1,0 +1,13 @@
+{
+  "name": "pixel-art",
+  "version": "1.0.0",
+  "description": "Generate authentic pixel art — sprites, animations, and tilesets — with Retro Diffusion. Includes the hosted MCP server connection and a workflow skill for cost-aware, game-ready generation.",
+  "author": {
+    "name": "Astropulse",
+    "url": "https://retrodiffusion.ai"
+  },
+  "homepage": "https://github.com/Retro-Diffusion/retro-diffusion-mcp",
+  "repository": "https://github.com/Retro-Diffusion/retro-diffusion-mcp",
+  "license": "MIT",
+  "keywords": ["pixel-art", "game-assets", "sprites", "animation", "tileset", "image-generation", "gamedev"]
+}

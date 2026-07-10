@@ -1,0 +1,26 @@
+{
+  "name": "retro-diffusion",
+  "owner": {
+    "name": "Astropulse",
+    "url": "https://retrodiffusion.ai"
+  },
+  "metadata": {
+    "description": "Real pixel art generation for AI assistants — sprites, animations, and tilesets by Retro Diffusion",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "pixel-art",
+      "source": "./plugins/pixel-art",
+      "description": "Generate authentic pixel art — sprites, animations, tilesets — via the hosted Retro Diffusion MCP server, with a workflow skill for cost-aware, game-ready results",
+      "author": {
+        "name": "Astropulse",
+        "url": "https://retrodiffusion.ai"
+      },
+      "homepage": "https://github.com/Retro-Diffusion/retro-diffusion-mcp",
+      "license": "MIT",
+      "keywords": ["pixel-art", "game-assets", "sprites", "animation", "tileset", "image-generation", "gamedev"],
+      "category": "creative"
+    }
+  ]
+}
