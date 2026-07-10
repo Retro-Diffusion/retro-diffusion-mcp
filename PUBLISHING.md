@@ -66,6 +66,22 @@ Notes: validation is automated (no human queue); published versions are immutabl
 - **GitHub MCP Registry featured/partner tier**: nominate via partnerships@github.com (the community tier is already covered by step 1).
 - **Windsurf Plugin Store**: no public submission — partnership outreach to Cognition.
 
+## Copy-paste submission kit
+
+Same strings for every form. Fill and go.
+
+- **Name:** `Retro Diffusion Pixel Art`
+- **Tagline:** `Real pixel art in your AI assistant — sprites, animations, and tilesets.`
+- **Description:** `Hosted MCP server for Retro Diffusion. Generate authentic, grid-aligned pixel art — sprites, characters, animations, and tilesets — from Claude, Cursor, VS Code, Windsurf, or any MCP client. 90+ styles, free cost estimation, pay-per-generation with no subscription and credits that never expire.`
+- **Endpoint:** `https://mcp.retrodiffusion.ai/mcp` (transport: Streamable HTTP)
+- **Auth:** header `Authorization: Bearer <key>` — keys created free at `https://retrodiffusion.ai/app/devtools`
+- **Repo:** `https://github.com/Retro-Diffusion/retro-diffusion-mcp`
+- **Website:** `https://retrodiffusion.ai` · **Docs:** `https://astropulse.gitbook.io/retro-diffusion`
+- **Logo (raw URL):** `https://raw.githubusercontent.com/Retro-Diffusion/retro-diffusion-mcp/master/assets/logo.png`
+- **Categories:** Image Generation · Game Development · Creative Tools
+- **Tool count:** 11
+- **Support:** `https://discord.gg/retrodiffusion` (use your preferred support email where one is required)
+
 ## Updating listings
 
 - Registry: bump `version` in server.json → `mcp-publisher publish`
