@@ -79,7 +79,7 @@ Same strings for every form. Fill and go.
 - **Website:** `https://retrodiffusion.ai` · **Docs:** `https://astropulse.gitbook.io/retro-diffusion`
 - **Logo (raw URL):** `https://raw.githubusercontent.com/Retro-Diffusion/retro-diffusion-mcp/master/assets/logo.png`
 - **Categories:** Image Generation · Game Development · Creative Tools
-- **Tool count:** 11
+- **Tool count:** 17
 - **Support:** `https://discord.gg/retrodiffusion` (use your preferred support email where one is required)
 
 ## Updating listings

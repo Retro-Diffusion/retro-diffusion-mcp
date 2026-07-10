@@ -3,7 +3,7 @@
   "name": "ai.retrodiffusion/pixel-art",
   "title": "Retro Diffusion Pixel Art",
   "description": "Generate authentic pixel art - sprites, animations, and tilesets - from any MCP client",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "websiteUrl": "https://retrodiffusion.ai",
   "repository": {
     "url": "https://github.com/Retro-Diffusion/retro-diffusion-mcp",

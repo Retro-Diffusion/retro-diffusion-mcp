@@ -126,18 +126,41 @@ Any MCP client that speaks Streamable HTTP works: URL `https://mcp.retrodiffusio
 
 ## Tools
 
+**Generate**
+
+| Tool | What it does |
+|---|---|
+| `create_inference` | Generate images, animations (GIF/sprite sheet), or tilesets. Prefer RD Pro styles for top quality |
+| `start_inference_job` | Start generation as an async job — recommended for animations and batches |
+| `get_inference_job` | Poll an async job for status and results |
+| `estimate_inference_cost` | **Free** price check for any generation before running it |
+
+**Edit** — post-process any image
+
+| Tool | What it does |
+|---|---|
+| `list_edit_tools` | Enabled edit tools with their fields, costs, and limits |
+| `run_edit_tool` | Run an edit tool: background remover, palette converter, color reducer, pixel correction, rotation, K-centroid downscale (free–$0.01) · image edit, inpainting, outpainting, seam tiling (premium) |
+| `estimate_edit_tool_cost` | **Free** cost/duration estimate for any edit |
+
+**Styles**
+
+| Tool | What it does |
+|---|---|
+| `list_available_styles` | Live style catalog with per-style size limits and capabilities |
+| `list_available_models` | The model families: RD Fast, RD Plus, RD Pro, RD Mini |
+| `get_style_usage` | Usage guidance and constraints for a specific style |
+| `create_user_style` | Create a custom style from a reference image (RD Pro template) |
+| `update_user_style` | Modify one of your custom styles |
+| `delete_user_style` | Remove one of your custom styles |
+
+**Account**
+
 | Tool | What it does |
 |---|---|
 | `authenticate` | Validate an API key and attach it to the session |
 | `get_balance` | Check remaining prepaid balance and credits |
-| `list_available_models` | The model families: RD Fast, RD Plus, RD Pro, RD Mini, animations, tilesets |
-| `list_available_styles` | Live style catalog with per-style size limits and capabilities |
-| `get_style_usage` | Usage guidance and constraints for a specific style |
-| `estimate_inference_cost` | **Free** price check for any generation before running it |
-| `create_inference` | Generate images, animations (GIF/sprite sheet), or tilesets |
-| `create_user_style` | Create a custom style from a reference image (RD Pro template) |
-| `update_user_style` | Modify one of your custom styles |
-| `delete_user_style` | Remove one of your custom styles |
+| `get_service_status` | Subsystem health check (no auth required) |
 | `logout` | Clear the stored session key |
 
 ## What you can make
