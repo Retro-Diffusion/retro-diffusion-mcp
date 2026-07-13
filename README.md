@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://retrodiffusion.ai">Website</a> ·
-  <a href="https://astropulse.gitbook.io/retro-diffusion">API Docs</a> ·
+  <a href="https://www.retrodiffusion.ai/app/guide/api">API Docs</a> ·
   <a href="https://github.com/Retro-Diffusion/api-examples">API Examples</a> ·
   <a href="https://discord.gg/retrodiffusion">Discord</a>
 </p>
@@ -24,7 +24,7 @@
 
 ---
 
-This is a **hosted, remote MCP server** — nothing to install or run locally. Point your client at the endpoint, add your API key, and your assistant can browse 90+ pixel art styles, estimate costs for free, and generate game-ready art.
+This is a **hosted, remote MCP server** — nothing to install or run locally. Point your client at the endpoint, add your API key, and your assistant can browse 90+ pixel art styles, estimate costs for free, generate game-ready art, and repair enlarged or softened pixel art.
 
 ```
 Endpoint:  https://mcp.retrodiffusion.ai/mcp     (Streamable HTTP)
@@ -142,6 +142,7 @@ Any MCP client that speaks Streamable HTTP works: URL `https://mcp.retrodiffusio
 | `list_edit_tools` | Enabled edit tools with their fields, costs, and limits |
 | `run_edit_tool` | Run an edit tool: background remover, palette converter, color reducer, pixel correction, rotation, K-centroid downscale (free–$0.01) · image edit, inpainting, outpainting, seam tiling (premium) |
 | `estimate_edit_tool_cost` | **Free** cost/duration estimate for any edit |
+| `fix_pixel_art` | **Free** recovery of the native pixel grid from enlarged, softened, AI-rendered, or compressed pixel art |
 
 **Styles**
 
@@ -163,6 +164,12 @@ Any MCP client that speaks Streamable HTTP works: URL `https://mcp.retrodiffusio
 | `get_service_status` | Subsystem health check (no auth required) |
 | `logout` | Clear the stored session key |
 
+`fix_pixel_art` accepts PNG or JPEG as raw base64 or a data URL. Images must be at least 16×16 and
+no more than 4 megapixels. Standard and neural share a 10 requests/minute limit per API key;
+request JSON is capped at 900,000 bytes and successful response JSON at 850,000 bytes. Use the
+standard engine for native Rust grid detection or the neural engine with optional target width and
+height values.
+
 ## What you can make
 
 - **Sprites & characters** — 90+ styles: portraits, game assets, isometric, top-down, platformer, 1-bit, Minecraft items/textures, UI elements, item sheets, character turnarounds
@@ -170,6 +177,7 @@ Any MCP client that speaks Streamable HTTP works: URL `https://mcp.retrodiffusio
 - **Tilesets** — Wang/blob tilesets, tile variations, single tiles, scene objects
 - **Consistent characters** — generate once with RD Pro, then pass the output as a reference image in follow-up generations (up to 9 references)
 - **Edits** — img2img, seamless tiling, transparent backgrounds, palette-constrained output
+- **Pixel repair** — reconstruct enlarged or softened pixel art at its detected native resolution
 
 Example prompts to try once connected:
 
@@ -178,6 +186,8 @@ Example prompts to try once connected:
 > "Generate a 128×128 pixel art knight resting by a campfire, RD Pro default style, transparent background."
 
 > "Create a 16×16 Wang tileset: grey stone path tiles blending into lush grass."
+
+> "Fix this enlarged sprite back to its native pixel grid using the standard Pixel Fixer."
 
 ## Prompting tips (important)
 
@@ -193,7 +203,7 @@ Retro Diffusion is built by [Astropulse](https://x.com/RealAstropulse) — a pix
 ## Support
 
 - [Discord community](https://discord.gg/retrodiffusion) — fastest answers, the founder is active daily
-- [Full API reference](https://astropulse.gitbook.io/retro-diffusion) and [runnable examples](https://github.com/Retro-Diffusion/api-examples)
+- [Full API reference](https://www.retrodiffusion.ai/app/guide/api) and [runnable examples](https://github.com/Retro-Diffusion/api-examples)
 - [Service status](https://api.retrodiffusion.ai/v1/status) (no auth required)
 
 ## License

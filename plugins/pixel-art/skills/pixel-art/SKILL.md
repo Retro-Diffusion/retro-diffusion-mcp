@@ -1,11 +1,11 @@
 ---
 name: pixel-art
-description: Generate real pixel art (sprites, characters, animations, tilesets, game assets) with the Retro Diffusion MCP tools. Use whenever the user wants pixel art, game sprites, tilesets, sprite-sheet animations, retro/8-bit/16-bit game assets, or Minecraft-style items — including setup help if the Retro Diffusion server or RD_API_KEY is not configured yet.
+description: Generate and repair real pixel art (sprites, characters, animations, tilesets, game assets) with the Retro Diffusion MCP tools. Use whenever the user wants pixel art, game sprites, tilesets, sprite-sheet animations, retro/8-bit/16-bit game assets, Minecraft-style items, or needs enlarged or softened pixel art restored to its native grid — including setup help if the Retro Diffusion server or RD_API_KEY is not configured yet.
 ---
 
-# Generating pixel art with Retro Diffusion
+# Generating and repairing pixel art with Retro Diffusion
 
-Retro Diffusion produces real, grid-aligned, palette-controlled pixel art — not "pixel-art style" images. The MCP server exposes tools to browse styles, estimate costs (free), and generate.
+Retro Diffusion produces real, grid-aligned, palette-controlled pixel art — not "pixel-art style" images. The MCP server exposes tools to browse styles, estimate costs (free), generate, and recover the native grid of enlarged or softened art.
 
 ## Setup (only if tools are unavailable or auth fails)
 
@@ -18,13 +18,14 @@ Retro Diffusion produces real, grid-aligned, palette-controlled pixel art — no
 1. **Pick a style**: call `list_available_styles` (filterable by model or tab). Each style declares its own size limits, batch limits, and whether it needs an input image or supports reference images. Never guess limits. Prefer RD Pro styles (`rd_pro__*`) for the highest quality.
 2. **Estimate first**: call `estimate_inference_cost` — it is free and returns the exact price. Tell the user the cost before generating anything expensive (RD Pro is $0.18/image; animations up to $0.25).
 3. **Generate** with `create_inference` for stills. For animations or batches use `start_inference_job` and poll `get_inference_job` every 2–5 seconds — they are long-running.
-4. **Post-process** with `run_edit_tool`: `background_remover` and `color_style_transfer` cost $0.01; `color_reducer`, `palette_converter`, `pixel_correction`, `k_centroid_downscale`, and `rotate` are free; `image_edit`, `inpainting`, `outpainting`, and `seam_tiling` are premium ($0.18). `estimate_edit_tool_cost` is always free.
+4. **Repair the pixel grid when needed** with `fix_pixel_art` before other edits. Use it for enlarged, softened, AI-rendered, or compressed pixel art. Choose the standard engine for native Rust grid detection or the neural engine for neural reconstruction with optional target width and height.
+5. **Post-process** with `run_edit_tool`: `background_remover` and `color_style_transfer` cost $0.01; `color_reducer`, `palette_converter`, `pixel_correction`, `k_centroid_downscale`, and `rotate` are free; `image_edit`, `inpainting`, `outpainting`, and `seam_tiling` are premium ($0.18). `estimate_edit_tool_cost` is always free.
 
 ## Prompting rules (these matter)
 
 - **Describe the SUBJECT only.** Never write "pixel art", "8-bit", or "pixelated" in the prompt — the style handles all rendering. Write "a knight resting by a campfire at night", not "pixel art of a knight".
 - Reuse the same `seed` to iterate on a composition while changing only the prompt.
-- Image inputs are raw base64 PNG strings — never include a `data:image/png;base64,` prefix.
+- Generation and edit-tool image inputs should be raw base64 PNG strings. `fix_pixel_art` accepts raw base64 or a data URL, and accepts PNG or JPEG input.
 - Sizes range 16×16 to 384×384 depending on style; low-res styles (Minecraft items/textures, skill icons) run 16–128px.
 
 ## Recipe cheat sheet
@@ -38,6 +39,7 @@ Retro Diffusion produces real, grid-aligned, palette-controlled pixel art — no
 - **Transparent background**: set `remove_bg: true`.
 - **Seamless texture**: set `tile_x`/`tile_y`.
 - **Palette control**: pass `input_palette` (base64 image of the palette) to constrain output colors.
+- **Recover a native pixel grid**: call `fix_pixel_art` with the image and `engine: "standard"`; it returns one raw base64 PNG in `base64_images`. Both engines share a 10 requests/minute limit per API key.
 - **Custom style**: `create_user_style` with a reference image builds a reusable RD Pro-template style.
 
 ## When things fail
