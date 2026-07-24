@@ -133,6 +133,7 @@ Any MCP client that speaks Streamable HTTP works: URL `https://mcp.retrodiffusio
 | `create_inference` | Generate images, animations (GIF/sprite sheet), or tilesets. Prefer RD Pro styles for top quality |
 | `start_inference_job` | Start generation as an async job — recommended for animations and batches |
 | `get_inference_job` | Poll an async job for status and results |
+| `list_inference_jobs` | List your recent async jobs — recover a `task_id` after a lost submission response instead of re-submitting and double-charging |
 | `estimate_inference_cost` | **Free** price check for any generation before running it |
 
 **Edit** — post-process any image
