@@ -31,6 +31,11 @@ Endpoint:  https://mcp.retrodiffusion.ai/mcp     (Streamable HTTP)
 Auth:      Authorization: Bearer <your API key>   (keys start with rdpk-)
 ```
 
+The hosted MCP endpoint remains backward compatible and defaults to Retro
+Diffusion API v2. Its server-side version policy is described in
+[API compatibility](API_COMPATIBILITY.md); MCP clients do not change their
+endpoint or authentication settings.
+
 ## Get an API key (2 minutes)
 
 1. Create a free account at [retrodiffusion.ai](https://retrodiffusion.ai) — new accounts include free starter credits.
@@ -212,6 +217,7 @@ Retro Diffusion is built by [Astropulse](https://x.com/RealAstropulse) — a pix
 
 - [Discord community](https://discord.gg/retrodiffusion) — fastest answers, the founder is active daily
 - [Full API reference](https://www.retrodiffusion.ai/app/guide/api) and [runnable examples](https://github.com/Retro-Diffusion/api-examples)
+- [API v1/v2 compatibility](API_COMPATIBILITY.md) — v2 default, v1 support, error contract, request IDs, and retry rules
 - [Service status](https://api.retrodiffusion.ai/v1/status) (no auth required)
 
 ## License

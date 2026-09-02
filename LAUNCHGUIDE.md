@@ -29,3 +29,15 @@ Retro Diffusion is the pixel-art specialist: models and tools purpose-built to p
 3. Connect: endpoint `https://mcp.retrodiffusion.ai/mcp` (Streamable HTTP) with header `Authorization: Bearer <key>`
 
 Full per-client setup instructions: see the README.
+
+## API compatibility
+
+The public MCP URL and `Authorization` header are stable across the Retro
+Diffusion API v1-to-v2 migration. The hosted MCP implementation defaults to v2;
+clients do not select an API version. V1 remains a supported rollback with no
+retirement plan.
+
+The v2 migration standardizes upstream errors, preserves request IDs for
+support, and never retries a failed paid request against another API version.
+See [API_COMPATIBILITY.md](API_COMPATIBILITY.md) for the contract and rollout
+boundary.

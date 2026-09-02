@@ -47,5 +47,5 @@ Retro Diffusion produces real, grid-aligned, palette-controlled pixel art — no
 
 - Insufficient balance → tell the user their balance (`get_balance`) and link https://retrodiffusion.ai/app/credits. Charges for failed generations are auto-refunded.
 - Size rejected → re-check the style's limits via `list_available_styles`; every style enforces its own range, and none goes above 384×384.
-- Service status (no auth): https://api.retrodiffusion.ai/v1/status
+- Service status (no auth): https://api.retrodiffusion.ai/v2/status
 - Successful generation but missing/expired URLs → call `get_inference_result(request_id)`; do not call `create_inference` again.
